@@ -2,7 +2,9 @@
 
 namespace ObadaAz\SlowQueryMonitor;
 
+use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
+use ObadaAz\SlowQueryMonitor\Middleware\SlowQueryMonitorMiddleware;
 use ObadaAz\SlowQueryMonitor\Console\Commands\ClearOldSlowQueriesLogCommand;
 
 class SlowQueryMonitorServiceProvider extends ServiceProvider
@@ -16,6 +18,9 @@ class SlowQueryMonitorServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $kernel = $this->app->make(Kernel::class);
+        $kernel->pushMiddleware(SlowQueryMonitorMiddleware::class);
+
         // Publish config file
         $this->publishes([
             __DIR__ . '/../config/slowQueryMonitor.php' => config_path('slowQueryMonitor.php'),

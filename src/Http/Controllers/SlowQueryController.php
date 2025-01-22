@@ -10,7 +10,7 @@ class SlowQueryController extends Controller
     public function index() {
 
         $slowQueries = SlowQuery::latest()->get();
-        return view('slowQueries::index', compact('slowQueries'));
+        return view('slowQueryMonitor::index', compact('slowQueries'));
     }
 
     public function destroy(SlowQuery $slowQuery) {
