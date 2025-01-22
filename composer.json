@@ -1,0 +1,28 @@
+{
+    "name": "obadaaz/slowquerymonitor",
+    "description": "A Laravel package to monitor and log slow database queries.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ObadaAz\\slowQueryMonitor\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "obada",
+            "email": "opadaalziede@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ObadaAz\\SlowQueryMonitor\\SlowQueryMonitorServiceProvider"
+            ]
+        }
+    }
+}
