@@ -22,14 +22,14 @@ class SlowQueryMonitorServiceProvider extends ServiceProvider
         ]);
 
         // Load routes
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
 
         // Load views
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'slowQueryMonitor');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'slowQueryMonitor');
 
         // Publish migrations
         $this->publishes([
-            __DIR__ . '/../database/migrations' => database_path('migrations'),
+            __DIR__ . '/database/migrations' => database_path('migrations'),
         ]);
 
         if ($this->app->runningInConsole()) {
